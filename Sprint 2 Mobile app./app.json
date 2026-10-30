@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "Custom 2048",
+    "slug": "custom-2048",
+    "scheme": "custom2048",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "plugins": [
+      "expo-router",
+      "expo-status-bar"
+    ]
+  }
+}
