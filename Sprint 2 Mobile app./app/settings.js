@@ -5,6 +5,7 @@ import { useRouter } from "expo-router";
 
 const AVAILABLE_VALUES = [2, 4, 8, 16];
 
+// Lets the player configure the board and new tile values.
 export default function SettingsScreen() {
   const router = useRouter();
   const [gridSize, setGridSize] = useState(4);

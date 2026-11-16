@@ -1,9 +1,11 @@
 // These functions contain the rules for 2048 and do not depend on the screen UI.
 
+// Creates a square board filled with empty cells.
 export function makeEmptyBoard(size) {
   return Array.from({ length: size }, () => Array(size).fill(0));
 }
 
+// Copies each row so moves can update the board without changing the original.
 function copyBoard(board) {
   return board.map((row) => [...row]);
 }
@@ -57,6 +59,7 @@ function rotateClockwise(board) {
   );
 }
 
+// Moves the board in the requested direction and reports points earned.
 export function moveBoard(board, direction) {
   // Rotate so the requested direction becomes a left move.
   const turns = { left: 0, up: 3, right: 2, down: 1 }[direction];

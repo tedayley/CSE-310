@@ -20,6 +20,7 @@ const TILE_COLORS = {
   2048: "#E026A8",
 };
 
+// Displays the game board, scores, and controls.
 export default function GameScreen() {
   const router = useRouter();
   const { width } = useWindowDimensions();
@@ -67,6 +68,7 @@ export default function GameScreen() {
     }
   }, [game.score, bestScore]);
 
+  // Starts a new round with the current settings.
   function restartGame() {
     setGame(newGame(settings.gridSize, settings.spawnValues));
   }

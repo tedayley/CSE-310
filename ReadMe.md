@@ -2,7 +2,6 @@
 
 A basic 2048 app that had modular settings for a customized experience.
 
-[Software Demo Video]https://drive.google.com/file/d/1ryP6HhyGdQ32K0eXQLkLTIOfkiXMUppg/view?usp=sharing
 
 # Development Environment
 

@@ -157,15 +157,18 @@ copy_message = ""
 copy_message_until = 0
 
 
+# Picks a new random item for the given category.
 def randomize_slot(category):
     selected_items[category] = random.choice(ITEMS[category])
 
 
+# Picks new items for every category.
 def randomize_all():
     for category in ITEMS:
         randomize_slot(category)
 
 
+# Copies the current build and displays whether the copy succeeded.
 def copy_to_clipboard():
     global copy_message, copy_message_until
 
@@ -241,6 +244,7 @@ VOLUME_TRACK = pygame.Rect(MARGIN + 85, HEIGHT - 48, 120, 8)
 volume = 0.5
 
 
+# Draws text at a position, optionally centered around it.
 def draw_text(text, font, color, x, y, center=False):
     surface = font.render(text, True, color)
 
@@ -252,6 +256,7 @@ def draw_text(text, font, color, x, y, center=False):
     screen.blit(surface, rect)
 
 
+# Draws up to two wrapped lines centered inside a rectangle.
 def draw_wrapped_text(text, font, color, rect, max_chars=24):
     lines = textwrap.wrap(text, width=max_chars) or [text]
     lines = lines[:2]
@@ -269,6 +274,7 @@ def draw_wrapped_text(text, font, color, rect, max_chars=24):
         y += line_height
 
 
+# Draws one category card and returns the position of its button.
 def draw_card(category, rect, mouse_pos):
     accent = CATEGORY_COLORS[category]
     hovering = rect.collidepoint(mouse_pos)
@@ -322,6 +328,7 @@ def draw_card(category, rect, mouse_pos):
     return button_rect
 
 
+# Draws the full app screen and returns the category button positions.
 def draw_interface():
     screen.fill(BACKGROUND)
     mouse_pos = pygame.mouse.get_pos()
@@ -406,6 +413,7 @@ def draw_interface():
     return individual_buttons
 
 
+# Runs the game window, music, and input event loop.
 def main():
     global volume
 
