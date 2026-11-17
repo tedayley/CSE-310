@@ -7,6 +7,13 @@ import matplotlib.pyplot as plt
 
 
 def load_and_analyze(csv_path):
+    """Load the Pokémon CSV, validate required fields, and compute summary stats.
+
+    The function checks that the dataset includes the columns needed for the
+    assignment, converts numeric fields to a safe format, and then returns the
+    full dataset plus the heaviest Pokémon, any Pokémon with Pokédex number 570,
+    and the average height value.
+    """
     data = pd.read_csv(csv_path)
 
     required = {"name", "weight_kg", "height_m", "pokedex_number"}
@@ -35,6 +42,7 @@ def load_and_analyze(csv_path):
 
 class PokemonExplorer:
     def __init__(self, root):
+        """Build the Tkinter window and prepare the Pokémon analysis UI."""
         self.root = root
         self.root.title("Pokemon CSV Explorer")
         self.root.geometry("650x420")
@@ -78,6 +86,7 @@ class PokemonExplorer:
             self.analyze()
 
     def analyze(self):
+        """Read the CSV, compute the requested metrics, and update the UI labels."""
         try:
             data, heaviest, number_570, average_height = load_and_analyze(
                 self.csv_path
@@ -115,6 +124,7 @@ class PokemonExplorer:
         self.show_graph()
 
     def show_graph(self):
+        """Display a horizontal bar chart of the ten heaviest Pokémon."""
         if self.data is None:
             return
 
